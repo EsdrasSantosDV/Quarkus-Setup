@@ -90,3 +90,7 @@ mvn verify -Pnative roda os testes
 
 mvn package -Dquarkus.container-image.build=true -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.container-image.tag=native
 NATIVAMENTE
+
+
+RODAR O DOCKER
+docker run -i --rm -p 8080:8080 esdras/esdras:native
