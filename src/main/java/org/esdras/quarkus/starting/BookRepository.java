@@ -1,6 +1,7 @@
 package org.esdras.quarkus.starting;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,11 +10,14 @@ import java.util.Optional;
 @ApplicationScoped
 public class BookRepository {
 
+    @ConfigProperty(name = "books.genre", defaultValue = "Fantasy")
+    String genre;
+
     public List<Book> getBooks() {
         return List.of(
-                new Book(1, "The Fellowship of the Ring", "J. R. R. Tolkien", 1954, "Fantasy"),
-                new Book(2, "The Two Towers", "J. R. R. Tolkien", 1954, "Fantasy"),
-                new Book(3, "The Return of the King", "J. R. R. Tolkien", 1955, "Fantasy")
+                new Book(1, "The Fellowship of the Ring", "J. R. R. Tolkien", 1954, genre),
+                new Book(2, "The Two Towers", "J. R. R. Tolkien", 1954, genre),
+                new Book(3, "The Return of the King", "J. R. R. Tolkien", 1955, genre)
         );
     }
 

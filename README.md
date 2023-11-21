@@ -58,3 +58,32 @@ If you want to learn more about building native executables, please consult http
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+
+
+### Comandos
+
+mvn -U io.quarkus:quarkus-maven-plugin:create \                                                                                       ✔  20.9.0 
+-DprojectGroupId=org.esdras.quarkus.starting \
+-DprojectArtifactId=rest-book \
+-DclassName="org.esdras.quarkus.starting.BookResource" \
+-Dpath="/api/books" \
+-Dextensions="resteasy-jsonb"
+
+        CRIAR ESCOPO
+
+
+mvn quarkus:dev ISSO TA NO DEVELOPMENT MODE QUE TEM HOT RELOAD DO QUARKUS
+
+
+//ISSO PROS EXECUTAVEIS JAR
+mvn package -DskipTests pra pular os testes
+mvn package -DskipTests -Dquarkus.package.type=uber-jar    pro jar uber
+java -jar -Dquarkus.log.category."org.esdras".level=INFO target/rest-book-1.0.0-SNAPSHOT-runner.jar  e isso aqui roda o jar em pacote e tbm mudar as propriedades
+
+//PRO EXECUTAVEL NATIVO DO GRAALVM QUE GERA UM EXECUTAVEL EM BINARIO
+mvn package -Pnative
+FICA RAPIDO DEMAIS SLC
+./target/rest-book-1.0.0-SNAPSHOT-runner DEPOIS E SO RODAR O JAR, SO QUE NÃO PRECISA DE RODAR NA JVM, PQ JA FICA DENTRO DO EXECUTAVEL
+ FICA TOP DEMAIS
+mvn verify -Pnative roda os testes
