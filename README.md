@@ -87,3 +87,6 @@ FICA RAPIDO DEMAIS SLC
 ./target/rest-book-1.0.0-SNAPSHOT-runner DEPOIS E SO RODAR O JAR, SO QUE NÃO PRECISA DE RODAR NA JVM, PQ JA FICA DENTRO DO EXECUTAVEL
  FICA TOP DEMAIS
 mvn verify -Pnative roda os testes
+
+mvn package -Dquarkus.container-image.build=true -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.container-image.tag=native
+NATIVAMENTE
